@@ -1,0 +1,33 @@
+{
+  "parserOptions": {
+     "ecmaVersion": 2018
+   },
+  "rules": {
+    "semi": 2,
+    "strict": ["error"],
+    "indent": [ "warn", 2,
+        {
+          "FunctionDeclaration": {"body": 1, "parameters": "first"},
+          "FunctionExpression": {"body": 1, "parameters": "first"},
+          "CallExpression": {"arguments": "first"},
+          "ArrayExpression": "first",
+          "ObjectExpression": "first",
+          "SwitchCase": 1,
+          "MemberExpression": 1
+        }
+    ],
+    "max-len": ["warn", 80],
+    "no-dupe-args": "error",
+    "no-dupe-keys": "error",
+    "no-empty": "warn",
+    "no-duplicate-case": "error",
+    "no-func-assign": "warn",
+    "curly": "warn",
+    "no-undef": "error"
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "mocha": true
+  }
+}
