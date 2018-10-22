@@ -1,22 +1,5 @@
 'use strict';
 module.exports = `
-type Item {
-  id: ID!
-  chat_link: String!
-  name: String!
-  icon: String!
-  type: enum!
-  description: String
-  type: ItemType!
-  rarity: Rarity!
-  level: Int!
-  vendor_value: Int!
-  default_skin: Int
-  game_types: [String]
-  flags: [Flag]!
-  game_types: [GameType]!
-  restrictions: [Restriction]!
-}
 enum Rarity {
   Junk
   Basic
@@ -85,18 +68,53 @@ enum ItemType {
   UpgradeComponent
   Weapon
 }
-type ItemStats {
+enum ArmorType {
+  Boots
+  Coat
+  Gloves
+  Helm
+  HelmAquatic
+  Leggings
+  Shoulders
+}
+enum WeightClass {
+  Heavy
+  Medium
+  Light
+  Clothing
+}
+enum InfutionSlotType {
+  Enrichment
+  Infusion
+}
 
+type ItemStats {
+  _blank: String
 }
 type Listings {
-
+  _blank: String
 }
 type Prices {
-
+  _blank: String
+}
+type Item {
+  id: ID!
+  chat_link: String!
+  name: String!
+  icon: String!
+  description: String
+  type: ItemType!
+  rarity: Rarity!
+  level: Int!
+  vendor_value: Int!
+  default_skin: Int
+  flags: [Flag]!
+  game_types: [GameType]!
+  restrictions: [Restriction]!
 }
 
 extend type Query {
   Items (first: Int, skip: Int, ids: [ID]): [Item]
-  Item (id: ID!)
+  Item (id: ID!): Item
 }
 `;
